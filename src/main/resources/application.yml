@@ -2,10 +2,10 @@ quarkus:
   debug:
     port: 5005
   datasource:
-    url: jdbc:postgresql://{DB_HOST}:{DB_PORT}/{DB_NAME}
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:omnichannel}
     driver: org.postgresql.Driver
-    username: {DB_USERNAME}
-    password: {DB_PASSWORD}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
   hibernate-orm:
     database:
       generation: update
@@ -14,5 +14,5 @@ quarkus:
     always-include: true
 
 firebase:
-  database-url: {FIREBASE_DATABASE_URL}
+  database-url: ${FIREBASE_DATABASE_URL:https://fir-auth-learn-5ed0b.firebaseio.com}
   location-path: /serviceAccountKey.json
